@@ -1,301 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Abir Gujjar | Frontend Developer Portfolio</title>
-<style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  body {
-    background: #121212;
-    color: #eee;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
-  }
-  a {
-    color: #82c7ff;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abir Gujjar | Frontend Developer Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  /* Navbar */
-  nav {
-    position: sticky;
-    top: 0;
-    background: #1e1e1e;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.9);
-    padding: 1rem 0;
-    z-index: 100;
-  }
-  nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2.5rem;
-  }
-  nav ul li {
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  nav ul li a {
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  nav ul li a:hover {
-    color: #53a8ff;
-  }
+    body {
+      background: #121212;
+      color: #eee;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
 
-  /* Container */
-  .container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
+    a {
+      color: #82c7ff;
+      text-decoration: none;
+    }
 
-  /* Hero Section */
-  #hero {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: linear-gradient(145deg, #222, #111);
-    border-radius: 12px;
-    box-shadow:
-      6px 6px 12px #0d0d0d,
-      -6px -6px 12px #2c2c2c;
-    color: #82c7ff;
-    perspective: 1000px;
-  }
-  #hero img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #53a8ff;
-    box-shadow: 0 10px 15px rgba(83,168,255,0.5);
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
-  }
-  #hero img:hover {
-    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-  }
-  #hero h1 {
-    font-size: 3rem;
-    margin: 1rem 0 0.3rem;
-    letter-spacing: 2px;
-    color: #82c7ff;
-    text-shadow: 0 0 8px #53a8ff;
-  }
-  #hero p {
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: #a0d8ffcc;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-  /* Sections */
-  section {
-    margin-top: 4rem;
-  }
-  section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    border-bottom: 3px solid #53a8ff;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-    color: #82c7ff;
-    text-shadow: 0 0 6px #53a8ffaa;
-  }
-  #about p {
-    font-size: 1.1rem;
-    color: #ddd;
-    max-width: 720px;
-    margin-bottom: 1rem;
-  }
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #1e1e1e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      padding: 1rem 0;
+      z-index: 100;
+    }
 
-  /* Skills */
-  #skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .skill {
-    background: #222;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    box-shadow:
-      3px 3px 6px #0a0a0a,
-      -3px -3px 6px #2d2d2d;
-    flex: 1 1 130px;
-    text-align: center;
-    font-weight: 700;
-    color: #53a8ff;
-    cursor: default;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    user-select: none;
-  }
-  .skill:hover {
-    transform: translateY(-8px) scale(1.05) rotateX(10deg);
-    box-shadow:
-      6px 6px 12px #0a0a0a,
-      -6px -6px 12px #2d2d2d,
-      0 0 15px #53a8ffaa;
-  }
-
-  /* Projects */
-  #projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  .project {
-    background: #222;
-    border-radius: 14px;
-    box-shadow:
-      6px 6px 10px #0a0a0a,
-      -6px -6px 10px #2d2d2d;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    perspective: 600px;
-  }
-  .project:hover {
-    transform: translateY(-15px) rotateX(8deg) rotateY(10deg);
-    box-shadow:
-      12px 12px 20px #0a0a0a,
-      -12px -12px 20px #2d2d2d,
-      0 0 25px #53a8ffcc;
-  }
-  .project img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-    border-bottom: 2px solid #53a8ff;
-  }
-  .project:hover img {
-    transform: scale(1.1);
-  }
-  .project-content {
-    padding: 1rem 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .project-content h3 {
-    margin-bottom: 0.5rem;
-    color: #82c7ff;
-    text-shadow: 0 0 5px #53a8ffaa;
-  }
-  .project-content p {
-    flex-grow: 1;
-    font-size: 1rem;
-    color: #bbb;
-    margin-bottom: 1rem;
-  }
-  .project-links {
-    display: flex;
-    justify-content: space-between;
-  }
-  .project-links a {
-    background: #53a8ff;
-    color: #121212;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 700;
-    transition: background 0.3s ease;
-    box-shadow: 0 2px 6px #3a83d9;
-  }
-  .project-links a:hover {
-    background: #3a83d9;
-  }
-
-  /* Contact */
-  #contact form {
-    max-width: 500px;
-    background: #222;
-    padding: 2rem;
-    border-radius: 14px;
-    box-shadow:
-      8px 8px 14px #0a0a0a,
-      -8px -8px 14px #2d2d2d;
-    margin: auto;
-  }
-  #contact form label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-weight: 700;
-    color: #53a8ff;
-  }
-  #contact form input,
-  #contact form textarea {
-    width: 100%;
-    padding: 0.7rem 1rem;
-    margin-bottom: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    background: #121212;
-    color: #ddd;
-    box-shadow:
-      inset 4px 4px 6px #0a0a0a,
-      inset -4px -4px 6px #2d2d2d;
-    resize: vertical;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  #contact form input:focus,
-  #contact form textarea:focus {
-    outline: none;
-    background: #1c1c1c;
-    color: #fff;
-    box-shadow:
-      inset 6px 6px 8px #064a9f,
-      inset -6px -6px 8px #1a76e3;
-  }
-  #contact form button {
-    background: #53a8ff;
-    color: #121212;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 6px 12px #3a83d9;
-  }
-  #contact form button:hover {
-    background: #3a83d9;
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 4rem;
-    color: #666;
-    font-size: 0.9rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
     nav ul {
-      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    nav ul li {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    nav ul li a {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #53a8ff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(145deg, #222, #111);
+      border-radius: 12px;
+      box-shadow:
+        6px 6px 12px #0d0d0d,
+        -6px -6px 12px #2c2c2c;
+      color: #82c7ff;
+      perspective: 1000px;
+    }
+
+    #hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #53a8ff;
+      box-shadow: 0 10px 15px rgba(83, 168, 255, 0.5);
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
+    }
+
+    #hero img:hover {
+      transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      margin: 1rem 0 0.3rem;
+      letter-spacing: 2px;
+      color: #82c7ff;
+      text-shadow: 0 0 8px #53a8ff;
+    }
+
+    #hero p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #a0d8ffcc;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 4rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 3px solid #53a8ff;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      color: #82c7ff;
+      text-shadow: 0 0 6px #53a8ffaa;
+    }
+
+    #about p {
+      font-size: 1.1rem;
+      color: #ddd;
+      max-width: 720px;
+      margin-bottom: 1rem;
+    }
+
+    /* Skills */
+    #skills {
+      display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
     }
-    #skills {
-      justify-content: center;
+
+    .skill {
+      background: #222;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow:
+        3px 3px 6px #0a0a0a,
+        -3px -3px 6px #2d2d2d;
+      flex: 1 1 130px;
+      text-align: center;
+      font-weight: 700;
+      color: #53a8ff;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
     }
-  }
-</style>
+
+    .skill:hover {
+      transform: translateY(-8px) scale(1.05) rotateX(10deg);
+      box-shadow:
+        6px 6px 12px #0a0a0a,
+        -6px -6px 12px #2d2d2d,
+        0 0 15px #53a8ffaa;
+    }
+
+    /* Projects */
+    #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project {
+      background: #222;
+      border-radius: 14px;
+      box-shadow:
+        6px 6px 10px #0a0a0a,
+        -6px -6px 10px #2d2d2d;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      perspective: 600px;
+    }
+
+    .project:hover {
+      transform: translateY(-15px) rotateX(8deg) rotateY(10deg);
+      box-shadow:
+        12px 12px 20px #0a0a0a,
+        -12px -12px 20px #2d2d2d,
+        0 0 25px #53a8ffcc;
+    }
+
+    .project img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      border-bottom: 2px solid #53a8ff;
+    }
+
+    .project:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 1rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-content h3 {
+      margin-bottom: 0.5rem;
+      color: #82c7ff;
+      text-shadow: 0 0 5px #53a8ffaa;
+    }
+
+    .project-content p {
+      flex-grow: 1;
+      font-size: 1rem;
+      color: #bbb;
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .project-links a {
+      background: #53a8ff;
+      color: #121212;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 6px #3a83d9;
+    }
+
+    .project-links a:hover {
+      background: #3a83d9;
+    }
+
+    /* Contact */
+    #contact form {
+      max-width: 500px;
+      background: #222;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow:
+        8px 8px 14px #0a0a0a,
+        -8px -8px 14px #2d2d2d;
+      margin: auto;
+    }
+
+    #contact form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      color: #53a8ff;
+    }
+
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #121212;
+      color: #ddd;
+      box-shadow:
+        inset 4px 4px 6px #0a0a0a,
+        inset -4px -4px 6px #2d2d2d;
+      resize: vertical;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #contact form input:focus,
+    #contact form textarea:focus {
+      outline: none;
+      background: #1c1c1c;
+      color: #fff;
+      box-shadow:
+        inset 6px 6px 8px #064a9f,
+        inset -6px -6px 8px #1a76e3;
+    }
+
+    #contact form button {
+      background: #53a8ff;
+      color: #121212;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 6px 12px #3a83d9;
+    }
+
+    #contact form button:hover {
+      background: #3a83d9;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 4rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      #skills {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <nav>
@@ -314,28 +349,34 @@
     <p>Frontend Developer | JavaScript Enthusiast | Responsive Design Advocate</p>
   </section>
 
- <section id="about" class="container">
-  <h2>About Me</h2>
-  <p>
-    Hello! I'm Abir Waqar, a passionate frontend web developer skilled in building modern, responsive, and user-friendly websites.  
-    I specialize in <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> to create clean and interactive web interfaces.  
-    Along with frontend technologies, I have experience with <strong>Firebase</strong> for backend services like authentication and real-time database management.  
-    I’m proficient in <strong>Git</strong> and <strong>GitHub</strong> for version control and collaborative development, including deploying projects using GitHub Pages.  
-    My designs are fully <strong>responsive</strong>, ensuring a seamless experience across all devices, from mobile to desktop.  
-    I love continuously learning new tools and technologies to improve my skills and deliver better digital experiences.
-  </p>
-</section>
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm Abir Waqar, a passionate frontend web developer skilled in building modern, responsive, and
+      user-friendly websites.
+      I specialize in <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> to create clean and
+      interactive web interfaces.
+      Along with frontend technologies, I have experience with <strong>Firebase</strong> for backend services like
+      authentication and real-time database management.
+      I’m proficient in <strong>Git</strong> and <strong>GitHub</strong> for version control and collaborative
+      development, including deploying projects using GitHub Pages.
+      My designs are fully <strong>responsive</strong>, ensuring a seamless experience across all devices, from mobile
+      to desktop.
+      I love continuously learning new tools and technologies to improve my skills and deliver better digital
+      experiences.
+    </p>
+  </section>
 
 
-<section id="skills" class="container">
-  <h2>Skills</h2>
-  <div class="skill">HTML</div>
-  <div class="skill">CSS</div>
-  <div class="skill">JavaScript</div>
-  <div class="skill">Firebase</div>
-  <div class="skill">Git & GitHub</div>
-<div class="skill">Responsive Design</div>
-</section>
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Firebase</div>
+    <div class="skill">Git & GitHub</div>
+    <div class="skill">Responsive Design</div>
+  </section>
 
 
 
@@ -346,8 +387,11 @@
       <img src="portfolio.png" alt="Project 1" />
       <div class="project-content">
         <h3>Portfolio Website</h3>
-        <p>This my personal portfolio website, showcasing my Thumbnail Designing skills. It is built with HTML, CSS, and JavaScript, featuring a responsive design that adapts to all devices.</p>
-        <p>It includes sections for my introduction, skills, projects, and a contact form. The design is clean and modern, with smooth scrolling and hover effects to enhance user experience. The project is hosted on GitHub Pages, making it easily accessible.</p>
+        <p>This my personal portfolio website, showcasing my Thumbnail Designing skills. It is built with HTML, CSS, and
+          JavaScript, featuring a responsive design that adapts to all devices.</p>
+        <p>It includes sections for my introduction, skills, projects, and a contact form. The design is clean and
+          modern, with smooth scrolling and hover effects to enhance user experience. The project is hosted on GitHub
+          Pages, making it easily accessible.</p>
         <p>Feel free to explore my portfolio to see my work and get in touch!</p>
         <div class="project-links">
           <a href="https://github.com/ChAbir786/Portfolio.git" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -360,22 +404,27 @@
       <img src="todo.png" alt="Project 2" />
       <div class="project-content">
         <h3>Todo Web-App</h3>
-        <p>A simple and intuitive To-Do List app built with vanilla JavaScript, featuring localStorage support for persistent task management.</p>
+        <p>A simple and intuitive To-Do List app built with vanilla JavaScript, featuring localStorage support for
+          persistent task management.</p>
         <div class="project-links">
           <a href="https://github.com/ChAbir786/Todo-List.git" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://chabir786.github.io/Todo-List/">Live Demo</a>
+          <a href="https://yourtodoapp.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
         </div>
       </div>
     </div>
 
     <div class="project">
-      <img src="https://via.placeholder.com/400x160/222222/53a8ff?text=Weather+App" alt="Project 3" />
+      <img src="image.png" alt="Project 3" />
       <div class="project-content">
-        <h3>Weather App</h3>
-        <p>A weather forecasting app that fetches real-time data from an API, built with React and Axios.</p>
+        <h3>E-Commerce Store – Fully Responsive Online Shopping Website</h3>
+        <p>Built a modern and fully responsive e-commerce store using HTML, CSS, and JavaScript, designed for a smooth
+          shopping experience on any device. Features include product listing pages, category filters, an interactive
+          cart system, and a secure checkout flow. Integrated Firebase for real-time order storage, customer
+          authentication, and admin order management. Includes search functionality, persistent cart data, and email
+          order confirmations — delivering a complete front-end and back-end shopping solution.</p>
         <div class="project-links">
-          <a href="https://github.com/yourusername/weather-app" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://yourweatherapp.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <a href="https://github.com/ChAbir786/Tech-Mart.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://chabir786.github.io/Tech-Mart/" target="_blank" rel="noopener noreferrer">Live Demo</a>
         </div>
       </div>
     </div>
@@ -398,41 +447,40 @@
     </form>
   </section> -->
 
-  <p>
-    <strong>Email:</strong>
-  <a href="mailto:onlyabiryt@gmail.com" style="color: inherit; text-decoration: none;">onlyabiryt@gmail.com</a>
-                </p>
-  <footer>
-    &copy; 2025 Abir Gujjar. All rights reserved.
-  </footer>
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:onlyabiryt@gmail.com" style="color: inherit; text-decoration: none;">onlyabiryt@gmail.com</a>
+    </p>
+    <footer>
+      &copy; 2025 Abir Gujjar. All rights reserved.
+    </footer>
 
-<script>
-  // Smooth scroll
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.getElementById(link.getAttribute('href').slice(1));
-      target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
+    <script>
+      // Smooth scroll
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.getElementById(link.getAttribute('href').slice(1));
+          target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
 
-  // Simple contact form alert
-  // const form = document.getElementById('contact-form');
-  // form.addEventListener('submit', e => {
-  //   e.preventDefault();
-  //   const name = form.name.value.trim();
-  //   const email = form.email.value.trim();
-  //   const message = form.message.value.trim();
-  //   if(name && email && message) {
-  //     alert(`Thank you, ${name}! Your message has been sent.`);
-  //     form.reset();
-  //   } else {
-  //     alert('Please fill in all fields.');
-  //   }
-  // });
-</script>
+      // Simple contact form alert
+      // const form = document.getElementById('contact-form');
+      // form.addEventListener('submit', e => {
+      //   e.preventDefault();
+      //   const name = form.name.value.trim();
+      //   const email = form.email.value.trim();
+      //   const message = form.message.value.trim();
+      //   if(name && email && message) {
+      //     alert(`Thank you, ${name}! Your message has been sent.`);
+      //     form.reset();
+      //   } else {
+      //     alert('Please fill in all fields.');
+      //   }
+      // });
+    </script>
 
 </body>
+
 </html>
-
-
