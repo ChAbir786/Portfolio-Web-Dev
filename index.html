@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abir Waqar | Frontend Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Reset */
     * {
@@ -316,7 +317,19 @@
       color: #666;
       font-size: 0.9rem;
     }
-
+.social-icons {
+        display: flex;
+        gap: 20px;
+    }
+    .social-icons a {
+        color: white;
+        font-size: 30px;
+        transition: 0.3s;
+    }
+    .social-icons a:hover {
+        color: #1da1f2;
+        transform: scale(1.2);
+    }
     /* Responsive */
     @media (max-width: 600px) {
       nav ul {
@@ -432,20 +445,13 @@
   </section>
 
   <section id="contact" class="container">
-    <!-- <h2>Contact Me</h2>
-    <form id="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </section> -->
+<div class="social-icons">
+  <a href="https://www.youtube.com/@onlyabiryyt" target="_blank"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.instagram.com/onlyabiryt/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.facebook.com/Abir Chaudhary" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.twitter.com/onlyabiryyt" target="_blank"><i class="fab fa-twitter"></i></a>
+</div>
+</section>
 
     <p>
       <strong>Email:</strong>
@@ -482,6 +488,5 @@
     </script>
 
 </body>
-
 
 </html>
